@@ -1,0 +1,38 @@
+{
+    "configuration" : {
+        "development": {
+            "host": "127.0.0.1",
+            "port": 3000,
+            "captcha" : {
+                "publicKey" : "",
+                "privateKey" : ""
+            }
+        },
+        "production": {
+            "host": "0.0.0.0",
+            "port": 6000,
+            "captcha" : {
+                "publicKey" : "",
+                "privateKey" : ""
+            }
+        },
+        "lisk" : {
+            "host" : "127.0.0.1",
+            "passphrase" : "",
+            "address" : "",
+            "port" : 9405,
+            "nethash": "cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12",
+            "broadhash": "cba57b868c8571599ad594c6607a77cad60cf0372ecde803004d87e679117c12",
+            "version": "7.9.0t",
+            "minVersion": "7.0.0"
+        },
+        "redis" : {
+            "host" : "127.0.0.1",
+            "port" : 6379,
+            "password" : ""
+        },
+        "amount" : 1,
+        "cacheTTL" : 43200,
+        "fixedPoint" : 100000000
+    }
+}

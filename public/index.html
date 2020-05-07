@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="faucet" class="ng-scope">
+    <head>
+        <style type="text/css">
+            @charset "UTF-8";
+            [ng\:cloak],
+            [ng-cloak],
+            [data-ng-cloak],
+            [x-ng-cloak],
+            .ng-cloak,
+            .x-ng-cloak,
+            .ng-hide {
+                display: none !important;
+            }
+            ng\:form {
+                display: block;
+            }
+            .ng-animate-block-transitions {
+                transition: 0s all!important;
+                -webkit-transition: 0s all!important;
+            }
+            .ng-hide-add-active,
+            .ng-hide-remove {
+                display: block!important;
+            }
+        </style>
+        <title>Shift - Faucet</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="application-name" content="Shift-Faucet"/>
+        <meta name="msapplication-TileColor" content="#F3F3E1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/img/site.webmanifest">
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-config" content="/img/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+        <script type="text/javascript" src="/lib/angular.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-recaptcha.min.js"></script>
+        <script type="text/javascript" src="/lib/effects.min.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+    </head>
+    <body ng-controller="mainController">
+        <div class="main-block">
+            <div class="logotype-block">
+                <p><a href="https://shiftproject.com/"><img src="/img/logo.png" width="325" alt="Shift"></a></p>
+            </div>
+            <div class="error fx-fade-down" ng-show="error">
+                <p><strong>Error:</strong> {{error}}</p>
+            </div>
+            <div class="txId fx-fade-down" ng-show="txId">
+                <p><strong>{{amount}} SHIFT has been sent to your account.</p>
+            </div>
+            <div class="testnet-notice" ng-if="network == 'testnet'">
+                <p>This faucet is currently running on a testnet.<br>All payouts are for testing purposes only.</p>
+            </div>
+            <div class="send-form">
+                <form class="form">
+                    <input type="text" ng-model="address" class="input" placeholder="Please enter your Shift address to receive {{amount || 0}} SHIFT for free">
+                    <br>
+                    <div recaptcha-custom></div>
+                    <br>
+                    <input type="submit" class="button" value="Receive my free SHIFT" ng-click="send()">
+                </form>
+            </div>
+        </div>
+        <div class="footer">Faucet address:
+            <a ng-if="network == 'testnet'" href="https://explorer.testnet.shiftnrg.org/address/{{donation_address}}" target="_blank">{{donation_address || 'Unavailable'}}</a>
+            <a ng-if="network == 'mainnet'" href="https://explorer.testnet.shiftnrg.org/address/{{donation_address}}" target="_blank">{{donation_address || 'Unavailable'}}</a>
+        </div>
+    </body>
+</html>
